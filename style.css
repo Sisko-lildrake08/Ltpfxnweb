@@ -1,0 +1,1012 @@
+/* ===============================
+   RESET GLOBAL
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    color: #fff;
+    scroll-behavior: smooth;
+}
+
+/* ===============================
+   NAVBAR MODERNE
+================================ */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    top: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: top 0.3s ease, background 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+/* LOGO RESPONSIVE */
+.navbar .logo {
+    width: 200px;
+    height: 200px;
+    background-image: url("logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 30px;
+   
+    width: clamp(120px, 8vw, 100px);
+    height: clamp(120px,8vw, 100px);
+    display: block;
+
+    animation: floatLogo 3s ease-in-out infinite;
+    transition: 0.3s;
+}
+
+/* Animation flottante */
+@keyframes floatLogo {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Effet au survol */
+.logo img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px #ff7b00);
+}
+
+
+/* NAV LINKS */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: clamp(15px, 3vw, 40px);
+    font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: #ff7b00;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    min-width: 220px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    z-index: 200;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.active .dropdown-menu {
+    display: flex;
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #ff7b00;
+    border-radius: 8px;
+}
+
+.dropdown-menu li:first-child a {
+    border-radius: 8px 8px 0 0;
+}
+
+.dropdown-menu li:last-child a {
+    border-radius: 0 0 8px 8px;
+}
+
+/* MENU MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ===============================
+   HERO SECTION
+================================ */
+.hero {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("ecole.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero .overlay {
+    max-width: 90%;
+    padding: clamp(20px, 5vw, 50px);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+/*==============================
+    SECTION FILIERES
+/* ===============================
+/* ===============================
+   ENSEIGNEMENT TECHNIQUE
+================================ */
+.hero2 {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("techphoto.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero2 .overlay2 {
+    max-width: 90%;
+    padding: clamp(20px, 5vw, 50px);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero2 h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.hero2 p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+/*==============================
+    formation professionnelle
+================================ */
+.hero3 {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("formation.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero3 .overlay3 {
+    max-width: 90%;
+    padding: clamp(20px, 5vw, 50px);
+    border-radius: 15px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero3 h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.hero3 p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+/* =============================== 
+   SECTION FILIERES
+================================ */
+.filieres {
+    padding: 60px 5%;
+    background: #f4f4f4;
+    color: #333;
+    text-align: center;
+}
+
+.filieres h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 40px;
+    color: #ff7b00;
+}
+
+.filieres .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.filiere {
+    flex: 1 1 300px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.filiere img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 15px;
+}
+
+.filiere h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.filiere p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+.btn-savoir-plus {
+    padding: 10px 20px;
+    background: #ff7b00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-savoir-plus:hover {
+    background: #e57000;
+}
+
+.more {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: white;
+    padding: 40px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+    z-index: 1001;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+}
+
+.more p {
+    line-height: 1.8;
+    font-size: 1rem;
+    white-space: pre-wrap;
+    color: #000;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.more.show {
+    transform: translateX(0);
+}
+
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.blur-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*=================================
+   BOUTONS STYLÉS
+=================================*/
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    position: relative;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600px;
+    overflow: hidden;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+
+/* ===============================
+   HERO OVERLAY + BOUTONS FIX
+================================ */
+
+/* Overlay bien centré et équilibré */
+.hero .overlay {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+    padding: clamp(20px, 5vw, 50px);
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    animation: fadeIn 1.5s ease;
+}
+.espace {
+    background-color: #0066cc;
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    border-radius: 15px; 
+
+}
+.espace2 {
+    background-color: #f06d16;
+    width: 100%;
+    height: 80px;
+    
+    border-radius: 15px;
+    
+
+}
+
+/* Container boutons (corrigé) */
+.buttons {
+    margin-top: -120px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    position: relative;
+    top: 5px;
+}
+
+/* Style général bouton */
+.btn {
+    position: relative;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    overflow: hidden;
+    transition: 0.4s;
+    z-index: 1;
+}
+
+/* Bouton principal */
+.btn-primary {
+    color: #ffffff;
+    border: 2px solid #ff7b00;
+}
+
+/* Bouton secondaire */
+.btn-outline {
+    color: #ff7b00;
+    border: 2px solid #ff7b00;
+}
+
+/* Effet orange qui glisse */
+.btn-outline::before  {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 123, 0, 0.3);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.btn-outline:hover::before {
+    width: 100%;
+}
+
+/* SECTION FILIERES */
+.filieres {
+    padding: 60px 6%;
+    background: #f6f7fa;
+    color: #1f2937;
+}
+
+.filieres h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    margin-bottom: 20px;
+    color: #0f172a;
+    font-weight: 700;
+}
+.filieres p {
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: #334155;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.filieres-container {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filiere-card {
+    flex: 1 1 320px;
+    max-width: 460px;
+    width: 100%;
+    background: #fffcf9f3;
+    border-radius: 12px;
+    padding: 26px;
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.12);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.filiere-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    color: #1f2937;
+}
+
+.filiere-card ul {
+    list-style: disc inside;
+    line-height: 1.65;
+    color: #334155;
+}
+
+.filiere-card li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 840px) {
+    .filieres-container { flex-direction: column; align-items: center; }
+    .filieres { padding: 40px 3%; }
+}
+/*
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ff7b00;
+    transition: 0.4s;
+    z-index: -1;
+}*/
+.btn-primary::before  {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    transition: 0.4s;
+    z-index: -1;
+}
+
+/* Hover */
+.btn:hover::before {
+    left: 0;
+}
+
+/* Texte hover */
+.btn-primary:hover{
+    color: #ff7b00;
+}
+
+.btn-outline:hover {
+    color: #ffffff;
+}
+
+/* Effet flottant */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255,123,0,0.4);
+}
+/* ===============================
+   FEATURES
+================================ */
+.features {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: clamp(40px, 8vw, 60px) 20px;
+    margin: 0 auto;
+    color: black;
+    
+    
+}
+
+.features h2 {
+    font-size: clamp(2rem, 4vw, 2.2rem);
+    margin-bottom: 20px;
+    margin-top: 60px;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.text p {
+    text-align: center;
+    
+}
+.features .description {
+    display: flex;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .description {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.video {
+    display: flex;
+    margin-top: 20px;
+    width: 100vh;
+    height: 50vh;
+    margin: 10vh 5vh;
+    
+}
+@media screen and (max-width: 768px) {
+    .video {
+        flex-direction: column;
+        width: 50vh;
+        height: 30vh;
+    }
+    
+}
+.video video {
+    border-radius: 10px;
+    margin-top: -20px;
+    object-fit: cover;
+    
+}
+.carto{
+    margin-top: 20px;
+    align-items: center;
+    display: block;
+    
+}
+.carto h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 20px;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    
+}
+.carto img{
+    width: 80vh;
+    height: 60vh;
+    margin: 0 5vh;
+    border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+    .carto img{
+        flex-direction: column;
+        width: 50vh;
+        height: 30vh;
+    }
+    .carto h2{
+      
+        text-align: center;
+    }
+    
+}
+
+
+.features p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: black;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
+.Offres h3 {
+    font-size: 25px;
+    color: rgb(2, 2, 2);
+    margin-top: 30px;
+
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.2rem);
+    margin-bottom: 20px;
+    
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+.offres{
+    display: flex;
+    gap: 20px;
+    padding: 10px 0;
+    margin: 0 10px;
+    align-items: center;
+    margin-top: 100px;
+     
+   
+}
+.offres h4 { 
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+
+}
+.Informatique {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: white;
+    width: 100%; /* ✅ correction ici */
+    background: #ffb980;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.Informatique img {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s ease;
+    border-radius:20px;
+    object-fit: cover;
+}
+
+.Informatique:hover img {
+    height: 250px;
+    opacity: 1;
+}
+
+
+/* ======================= */
+
+.Electronique {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: white;
+    width: 100%;
+    
+    background: #ffb980;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.Electronique img {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s ease;
+    border-radius:20px;
+    object-fit: cover;
+}
+
+.Electronique:hover img {
+    height: 250px;
+    opacity: 1;
+}
+
+
+/* ======================= */
+
+.Mécanique {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: white;
+    
+    width: 100%;
+    background: #ffb980;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.Mécanique img {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s ease;
+    border-radius:20px;
+    object-fit: cover;
+}
+
+.Mécanique:hover img {
+    height: 250px;
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .offres {
+        flex-direction: column;
+    }
+    
+}
+
+/* ===============================
+   img FEATURES
+================================ */ 
+.img{
+    margin-top: -543px;
+    width: 500px;
+    height: 500px;
+    transition: 0.3s;
+    margin-left: 100px;
+    overflow: hidden;
+    border-radius:20px ;
+    object-fit: cover;
+    
+   
+}
+
+
+/* ===============================
+   SECTION INFOS
+================================ */
+.infos {
+    
+    padding: 0 auto;
+    text-align: center;
+}
+
+.infos h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 10px;
+    
+}
+
+/* CARTES (optionnel) */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: clamp(250px, 80%, 300px);
+    background: rgba(255, 255, 255, 0.1);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+}
+
+ /*===============================
+   FOOTER
+================================ 
+*/
+footer {
+    width: 100%;
+    background-color: #146dc5;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    line-height: 1.6;
+}
+
+footer p {
+    max-width: 100px;   
+    margin: 0 auto;     
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+/* TABLETTE */
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 25px;
+        font-size: 1rem;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 90px;
+        right: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.95);
+
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 25px;
+
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* PETITS ÉCRANS */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .navbar {
+        padding: 10px 20px;
+    }
+   
+        
+}
